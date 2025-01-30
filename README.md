@@ -20,3 +20,9 @@ j'ai donc biens fini mon visuel et commencer a fait les éléments que l'on pour
 - [W3S How to Create a Draggable HTML Element](https://www.w3schools.com/howto/howto_js_draggable.asp)
 
 pour les trouver je suis allé sur [click and drag piece js html](https://www.google.com/search?q=click+and+drag+piece+js+html&sca_esv=25faab50f0835e7e&rlz=1C1GCEA_enCH1124CH1124&ei=xveRZ6r2HvLZ7_UP2aCUoAk&ved=0ahUKEwiq8YLYsIuLAxXy7LsIHVkQBZQQ4dUDCBE&uact=5&oq=click+and+drag+piece+js+html&gs_lp=Egxnd3Mtd2l6LXNlcnAiHGNsaWNrIGFuZCBkcmFnIHBpZWNlIGpzIGh0bWwyBRAhGKABMgUQIRigATIFECEYnwUyBRAhGJ8FSLQNUO4BWOALcAF4AJABAJgBZqABswWqAQM2LjK4AQPIAQD4AQGYAgmgAscFwgIJEAAYsAMYCBgewgILEAAYgAQYsAMYogTCAgYQABgWGB7CAggQABiABBiiBMICCBAAGBYYChgemAMAiAYBkAYDkgcDNy4yoAeuHQ&sclient=gws-wiz-serp)
+
+---
+### <u>30.01.25</u> 
+j'ai repris les liens que j'ai récuperer la dernière fois et je les ai regarder j'ai aussi ajouté certaine tâche afin de casser certaine grande tâche en plus petites, certains n'était pas très utile car je voulais savoir comment déplacé librement les éléments je suis donc partie sur le site de W3School. jai reussi a faire en sorte que la pièce ce déplace quand on la prend avec la souris et qu'elle disparraise quand on la glisse a gauche (la partie grise d'ou elle viens),
+#### problème !
+jai eu une erreur quand on glisse un élément a droite jai voulu qu'il ce remette dans la zone de travail du centre mais le tout premier element ce bug et n'est plus accesible
