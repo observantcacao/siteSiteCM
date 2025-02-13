@@ -26,3 +26,11 @@ pour les trouver je suis allé sur [click and drag piece js html](https://www.go
 j'ai repris les liens que j'ai récuperer la dernière fois et je les ai regarder j'ai aussi ajouté certaine tâche afin de casser certaine grande tâche en plus petites, certains n'était pas très utile car je voulais savoir comment déplacé librement les éléments je suis donc partie sur le site de W3School. jai reussi a faire en sorte que la pièce ce déplace quand on la prend avec la souris et qu'elle disparraise quand on la glisse a gauche (la partie grise d'ou elle viens),
 #### problème !
 jai eu une erreur quand on glisse un élément a droite jai voulu qu'il ce remette dans la zone de travail du centre mais le tout premier element ce bug et n'est plus accesible
+
+---
+### <u>06.02.25</u>
+absent
+
+---
+### <u>13.02.25</u>
+j'ai essaié de résoudre le bug de la dernière fois de tous les moyen possible je me retrouve donc avec un code modifié et tripouillé par chat meme si j'ai garder l'original je vais me garder ce bug pour plus tard, je pense que le problème proviens du fais que pour je ne sais pas quel raison si l'élément de droite est posé a droite il ne garde pas ses evenement. C'est en tout cas ce que j'ai remarquer, j'éspère pouvoir fix ce bug. Jai aussi commencé a faire le fais que l'élément que l'on dépose s'affiche.
