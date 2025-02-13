@@ -26,6 +26,3 @@ pour les trouver je suis allé sur [click and drag piece js html](https://www.go
 j'ai repris les liens que j'ai récuperer la dernière fois et je les ai regarder j'ai aussi ajouté certaine tâche afin de casser certaine grande tâche en plus petites, certains n'était pas très utile car je voulais savoir comment déplacé librement les éléments je suis donc partie sur le site de W3School. jai reussi a faire en sorte que la pièce ce déplace quand on la prend avec la souris et qu'elle disparraise quand on la glisse a gauche (la partie grise d'ou elle viens),
 #### problème !
 jai eu une erreur quand on glisse un élément a droite jai voulu qu'il ce remette dans la zone de travail du centre mais le tout premier element ce bug et n'est plus accesible
-
-### <u>06.02.25</u>
-absent.
