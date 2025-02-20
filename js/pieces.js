@@ -1,77 +1,22 @@
-/*let pieces = document.querySelectorAll(".cardPiece");
-let sidebar = document.querySelector(".bg-dark"); // La barre latérale gauche
-let centerArea = document.querySelector(".flex-fill.bg-light"); // Zone centrale
+// initialisation des zones d'action (et de la zone des pièces)
+let pieces = document.querySelectorAll(".cardPiece");
+let sidebar = document.querySelector(".bg-dark"); // <- gauche
+let centerArea = document.querySelector(".flex-fill.bg-light"); // <- zoen du centre
+let rightZone = document.querySelector(".right-zone"); // <- zone d'affichage
 
-pieces.forEach(piece => {
-    piece.addEventListener("mousedown", (event) => {
-        event.preventDefault();
-
-        // Clone le morceau cliqué
-        let clone = piece.cloneNode(true);
-        document.body.appendChild(clone);
-
-        // Récupère la taille de l'élément original
-        let rect = piece.getBoundingClientRect();
-        clone.style.width = rect.width + "px";
-        clone.style.height = rect.height + "px";
-
-        // Position initiale
-        clone.style.position = "absolute";
-        clone.style.left = event.pageX + "px";
-        clone.style.top = event.pageY + "px";
-        clone.style.cursor = "grabbing";
-        clone.style.zIndex = "1000";
-
-        let shiftX = event.clientX - rect.left;
-        let shiftY = event.clientY - rect.top;
-
-        function moveAt(pageX, pageY) {
-            clone.style.left = pageX - shiftX + "px";
-            clone.style.top = pageY - shiftY + "px";
-        }
-
-        function onMouseMove(event) {
-            moveAt(event.pageX, event.pageY);
-        }
-
-        document.addEventListener("mousemove", onMouseMove);
-
-        document.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", onMouseMove);
-            clone.style.cursor = "grab";
-
-            // Vérifie si le clone est dans la barre latérale gauche
-            let cloneRect = clone.getBoundingClientRect();
-            let sidebarRect = sidebar.getBoundingClientRect();
-
-            // Si le clone est dans la barre gauche, on le supprime
-            if (
-                cloneRect.left < sidebarRect.right &&
-                cloneRect.right > sidebarRect.left &&
-                cloneRect.top < sidebarRect.bottom &&
-                cloneRect.bottom > sidebarRect.top
-            ) {
-                clone.remove();
-            } else {
-                // Vérifie si le clone est déposé à droite de la zone centrale
-                let centerRect = centerArea.getBoundingClientRect();
-                let pageWidth = window.innerWidth;
-
-                if (cloneRect.left > centerRect.right) {
-                    // Si le clone est à droite, on le remet au centre
-                    clone.style.left = (centerRect.left + centerRect.right) / 2 - clone.offsetWidth / 2 + "px";
-                    clone.style.top = centerRect.top + "px"; // Ramène à la position centrale (haut)
-                } else {
-                    makeDraggable(clone); // Rendre le clone déplaçable si il reste dans la zone centrale
-                }
-            }
-        }, { once: true });
+// met a jour la zone d'affichage avec 
+function updateRightZone() {
+    rightZone.innerHTML = ""; // remet la zone vide
+    let centerPieces = centerArea.querySelectorAll(".cardPiece");
+    centerPieces.forEach(piece => {
+        let textElement = document.createElement("div");
+        textElement.textContent = piece.textContent;
+        textElement.classList.add("piece-text");// <- ajoute que le texte de la pièce
+        rightZone.appendChild(textElement);
     });
+}
 
-    piece.ondragstart = () => false; // Empêche le comportement de drag par défaut
-});
-
-// Fonction pour rendre un clone déplaçable après création
+// rend l'élément bougeable
 function makeDraggable(element) {
     element.addEventListener("mousedown", (event) => {
         event.preventDefault();
@@ -97,180 +42,59 @@ function makeDraggable(element) {
             document.removeEventListener("mousemove", onMouseMove);
             element.style.cursor = "grab";
 
-            // Vérifie si l'élément est dans la barre latérale
             let elemRect = element.getBoundingClientRect();
             let sidebarRect = sidebar.getBoundingClientRect();
+            let centerRect = centerArea.getBoundingClientRect();
+            let rightRect = rightZone.getBoundingClientRect();
 
+            // si c'est placé a gauche alors on supprime
             if (
                 elemRect.left < sidebarRect.right &&
                 elemRect.right > sidebarRect.left &&
                 elemRect.top < sidebarRect.bottom &&
                 elemRect.bottom > sidebarRect.top
             ) {
-                element.remove(); // Supprime l'élément si lâché dans la barre gauche
-            } else {
-                // Vérifie si l'élément est déposé à droite de la zone centrale
-                let centerRect = centerArea.getBoundingClientRect();
-
-                if (elemRect.left > centerRect.right) {
-                    // Si le clone est à droite, le ramener au centre
-                    element.style.left = (centerRect.left + centerRect.right) / 2 - element.offsetWidth / 2 + "px";
-                    element.style.top = centerRect.top + "px"; // Ramène à la position centrale (haut)
-                    makeDraggable(clone);
-                }
+                element.remove();
             }
-        }, { once: true });
-    });
-
-    element.ondragstart = () => false; // Empêche le comportement de drag par défaut
-
-    // Ajoute un événement de double-clic pour supprimer l'élément
-    element.addEventListener("dblclick", () => {
-        element.remove(); // Supprime l'élément lors du double-clic
-    });
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-let pieces = document.querySelectorAll(".cardPiece");
-let sidebar = document.querySelector(".bg-dark"); // Left sidebar
-let centerArea = document.querySelector(".flex-fill.bg-light"); // Central area
-
-pieces.forEach(piece => {
-    piece.addEventListener("mousedown", (event) => {
-        event.preventDefault();
-
-        // Clone the clicked piece
-        let clone = piece.cloneNode(true);
-        document.body.appendChild(clone);
-
-        // Get original element size
-        let rect = piece.getBoundingClientRect();
-        clone.style.width = rect.width + "px";
-        clone.style.height = rect.height + "px";
-
-        // Get central area position
-        let centerRect = centerArea.getBoundingClientRect();
-        let centerX = centerRect.left + centerRect.width / 2 - rect.width / 2;
-        let centerY = centerRect.top + centerRect.height / 2 - rect.height / 2;
-
-        // Initial position in the center of the central area
-        clone.style.position = "absolute";
-        clone.style.left = `${centerX}px`;
-        clone.style.top = `${centerY}px`;
-        clone.style.cursor = "grabbing";
-        clone.style.zIndex = "1000";
-
-        let shiftX = event.clientX - rect.left;
-        let shiftY = event.clientY - rect.top;
-
-        function moveAt(pageX, pageY) {
-            clone.style.left = pageX - shiftX + "px";
-            clone.style.top = pageY - shiftY + "px";
-        }
-
-        function onMouseMove(event) {
-            moveAt(event.pageX, event.pageY);
-        }
-
-        document.addEventListener("mousemove", onMouseMove);
-
-        document.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", onMouseMove);
-            clone.style.cursor = "grab";
-
-            // Get the position of the sidebar and central areas
-            let cloneRect = clone.getBoundingClientRect();
-            let sidebarRect = sidebar.getBoundingClientRect();
-            let centerAreaRect = centerArea.getBoundingClientRect();
-
-            // Check if the clone is inside the left sidebar
-            if (
-                cloneRect.left < sidebarRect.right &&
-                cloneRect.right > sidebarRect.left &&
-                cloneRect.top < sidebarRect.bottom &&
-                cloneRect.bottom > sidebarRect.top
-            ) {
-                clone.remove(); // Remove if dropped in the left sidebar
-            }
-            // Check if the clone is in the central areas (main content areas)
+            // si c'est placé a droite alors on supprime
             else if (
-                cloneRect.left < centerAreaRect.right &&
-                cloneRect.right > centerAreaRect.left &&
-                cloneRect.top < centerAreaRect.bottom &&
-                cloneRect.bottom > centerAreaRect.top
+                elemRect.left < rightRect.right &&
+                elemRect.right > rightRect.left &&
+                elemRect.top < rightRect.bottom &&
+                elemRect.bottom > rightRect.top
             ) {
-                clone.remove(); // Remove if dropped in the central area
-            } else {
-                makeDraggable(clone); // Make it draggable again if dropped elsewhere
+                element.remove();
             }
-        }, { once: true });
-    });
+            // si c'est placé en haut ou en bas on supprime
+            else if (elemRect.bottom < 0 || elemRect.top > event.clientY) {
+                element.remove();
+            }
 
-    piece.ondragstart = () => false; // Prevent default drag behavior
-});
-
-// Function to make an element draggable
-function makeDraggable(element) {
-    element.addEventListener("mousedown", (event) => {
-        event.preventDefault();
-
-        let rect = element.getBoundingClientRect();
-        let shiftX = event.clientX - rect.left;
-        let shiftY = event.clientY - rect.top;
-
-        element.style.cursor = "grabbing";
-
-        function moveAt(pageX, pageY) {
-            element.style.left = pageX - shiftX + "px";
-            element.style.top = pageY - shiftY + "px";
-        }
-
-        function onMouseMove(event) {
-            moveAt(event.pageX, event.pageY);
-        }
-
-        document.addEventListener("mousemove", onMouseMove);
-
-        document.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", onMouseMove);
-            element.style.cursor = "grab";
-        }, { once: true });
+            updateRightZone(); // Update right zone when elements move
+        });
     });
 
     element.ondragstart = () => false; // Prevent default drag behavior
-}*/
 
-let pieces = document.querySelectorAll(".cardPiece");
-let sidebar = document.querySelector(".bg-dark"); // La barre latérale gauche
-let centerArea = document.querySelector(".flex-fill.bg-light"); // Zone centrale
-let rightZone = document.querySelector(".right-zone"); // Zone de droite où afficher l'élément
+    // Delete on double-click
+    element.addEventListener("dblclick", () => {
+        element.remove();
+        updateRightZone(); // Update right zone when an element is deleted
+    });
+}
 
+// Attach draggable functionality to all initial pieces
 pieces.forEach(piece => {
     piece.addEventListener("mousedown", (event) => {
         event.preventDefault();
 
-        // Clone le morceau cliqué
         let clone = piece.cloneNode(true);
         document.body.appendChild(clone);
 
-        // Récupère la taille de l'élément original
         let rect = piece.getBoundingClientRect();
         clone.style.width = rect.width + "px";
         clone.style.height = rect.height + "px";
 
-        // Position initiale
         clone.style.position = "absolute";
         clone.style.left = event.pageX + "px";
         clone.style.top = event.pageY + "px";
@@ -295,10 +119,12 @@ pieces.forEach(piece => {
             document.removeEventListener("mousemove", onMouseMove);
             clone.style.cursor = "grab";
 
-            // Vérifie si le clone est dans la barre latérale gauche
             let cloneRect = clone.getBoundingClientRect();
             let sidebarRect = sidebar.getBoundingClientRect();
+            let centerRect = centerArea.getBoundingClientRect();
+            let rightRect = rightZone.getBoundingClientRect();
 
+            // If in the left sidebar, remove it
             if (
                 cloneRect.left < sidebarRect.right &&
                 cloneRect.right > sidebarRect.left &&
@@ -306,32 +132,35 @@ pieces.forEach(piece => {
                 cloneRect.bottom > sidebarRect.top
             ) {
                 clone.remove();
-            } else {
-                // Vérifie si le clone est dans la zone centrale
-                let centerRect = centerArea.getBoundingClientRect();
-                let cloneCenter = false;
-                
-                if (
-                    cloneRect.left < centerRect.right &&
-                    cloneRect.right > centerRect.left &&
-                    cloneRect.top < centerRect.bottom &&
-                    cloneRect.bottom > centerRect.top
-                ) {
-                    // Now show the original element in the right zone (instead of cloning)
-                    let originalContent = piece.cloneNode(true); // Get original content (e.g., text)
-                    originalContent.style.position = "static"; // Remove absolute positioning to make it visible
-                    originalContent.style.left = "auto";
-                    originalContent.style.top = "auto";
-
-                    // Append it to the right zone
-                    rightZone.appendChild(originalContent);
-                    
-                    // Optionally, remove the clone after appending to the right zone
-                    clone.remove();
-                }
+            }
+            // If placed in the right zone, remove it
+            else if (
+                cloneRect.left < rightRect.right &&
+                cloneRect.right > rightRect.left &&
+                cloneRect.top < rightRect.bottom &&
+                cloneRect.bottom > rightRect.top
+            ) {
+                clone.remove();
+            }
+            // If placed in the center, keep it draggable and allow double-click delete
+            else if (
+                cloneRect.left < centerRect.right &&
+                cloneRect.right > centerRect.left &&
+                cloneRect.top < centerRect.bottom &&
+                cloneRect.bottom > centerRect.top
+            ) {
+                centerArea.appendChild(clone);
+                makeDraggable(clone);
+                updateRightZone(); // Update right zone when an element is added
             }
         }, { once: true });
+
+        // Enable double-click delete for the clone
+        clone.addEventListener("dblclick", () => {
+            clone.remove();
+            updateRightZone(); // Update right zone when an element is deleted
+        });
     });
 
-    piece.ondragstart = () => false; // Empêche le comportement de drag par défaut
+    piece.ondragstart = () => false;
 });

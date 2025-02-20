@@ -34,3 +34,14 @@ absent
 ---
 ### <u>13.02.25</u>
 j'ai essaié de résoudre le bug de la dernière fois de tous les moyen possible je me retrouve donc avec un code modifié et tripouillé par chat meme si j'ai garder l'original je vais me garder ce bug pour plus tard, je pense que le problème proviens du fais que pour je ne sais pas quel raison si l'élément de droite est posé a droite il ne garde pas ses evenement. C'est en tout cas ce que j'ai remarquer, j'éspère pouvoir fix ce bug. Jai aussi commencé a faire le fais que l'élément que l'on dépose s'affiche.
+
+--- 
+### <u>20.02.25</u>
+#### problème
+j'ai commencer la journée avec une erreur ? dès que je déposais une pièce au centre elle perdait son "dragable" éléments du coup jai du retourner sur une ancienne version afin de pouvoir réparer tout ca. j'ai enlever le fais que la pièce revienne  
+
+quand on dépose les pièces au milieux elle ce décale vers la droite.  
+#### solution
+jai tout simplement décidé d'enlever la possibilité de faire déplacé la pièces de la droite vers le milieux et fait en sorte qu'elle ce supprime simplement.
+
+j'ai aussi ajouté le fais qu'on vois le texte de la pièces que l'on veut a droite et la ensuite le fais que cela pose le bonne éléments tel qu'un input ou autres...  je compte aussi réfléchir a comment faire la partie css possible car a part quelque idée je n'en sais pas grand choses.  afin que le code sois plus compréhensible j'ai retirer le code mort que je gardais au cas ou, et je l'ai stocké sur mon ordinateur
