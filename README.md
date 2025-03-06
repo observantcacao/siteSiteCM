@@ -45,3 +45,8 @@ quand on dépose les pièces au milieux elle ce décale vers la droite.
 jai tout simplement décidé d'enlever la possibilité de faire déplacé la pièces de la droite vers le milieux et fait en sorte qu'elle ce supprime simplement.
 
 j'ai aussi ajouté le fais qu'on vois le texte de la pièces que l'on veut a droite et la ensuite le fais que cela pose le bonne éléments tel qu'un input ou autres...  je compte aussi réfléchir a comment faire la partie css possible car a part quelque idée je n'en sais pas grand choses.  afin que le code sois plus compréhensible j'ai retirer le code mort que je gardais au cas ou, et je l'ai stocké sur mon ordinateur
+
+--- 
+### <u>06.03.25</u>
+reprise après la semaine de vacances je commence par devoir réparé le bug de la dernière fois ou la pièces ce décale sur la droite, pour le faire j'ai changé sa position de absolute a fixed est cela a tout réglé car la pièces était affecté par le css et plus maintenant.  
+j'ai mis le fais que les pièces n'affiche plus juste du texte mais leur élément propre (par rapport au nom)

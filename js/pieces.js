@@ -6,15 +6,83 @@ let rightZone = document.querySelector(".right-zone"); // <- zone d'affichage
 
 // met a jour la zone d'affichage avec 
 function updateRightZone() {
-    rightZone.innerHTML = ""; // remet la zone vide
+    rightZone.innerHTML = ""; // Remet la zone vide
     let centerPieces = centerArea.querySelectorAll(".cardPiece");
+
     centerPieces.forEach(piece => {
-        let textElement = document.createElement("div");
-        textElement.textContent = piece.textContent;
-        textElement.classList.add("piece-text");// <- ajoute que le texte de la pièce
-        rightZone.appendChild(textElement);
+        let element;
+
+        switch (piece.textContent.trim().toLowerCase()) {
+            case "text":
+                element = document.createElement("p");
+                element.textContent = "Ceci est un texte.";
+                break;
+
+            case "rentrer du texte":
+                element = document.createElement("input");
+                element.type = "text";
+                element.placeholder = "Entrez votre texte ici...";
+                break;
+
+            case "liste":
+                element = document.createElement("ul");
+                ["Élément 1", "Élément 2", "Élément 3"].forEach(text => {
+                    let li = document.createElement("li");
+                    li.textContent = text;
+                    element.appendChild(li);
+                });
+                break;
+
+            case "section":
+                element = document.createElement("section");
+                element.textContent = "Ceci est une section.";
+                element.style.border = "1px solid black";
+                element.style.padding = "10px";
+                break;
+
+            case "div":
+                element = document.createElement("div");
+                element.textContent = "Ceci est une div.";
+                element.style.background = "#f0f0f0";
+                element.style.padding = "10px";
+                break;
+
+            case "lien":
+                element = document.createElement("a");
+                element.href = "#";
+                element.textContent = "Cliquez ici";
+                element.style.color = "blue";
+                break;
+
+            case "image":
+                element = document.createElement("img");
+                element.src = "https://via.placeholder.com/150";
+                element.alt = "Image";
+                element.style.width = "100px";
+                break;
+
+            case "titre":
+                element = document.createElement("h2");
+                element.textContent = "Titre Exemple";
+                break;
+
+            case "scroll down":
+                element = document.createElement("button");
+                element.textContent = "Faire défiler";
+                element.onclick = () => window.scrollBy(0, 100);
+                break;
+
+            default:
+                element = document.createElement("span");
+                element.textContent = piece.textContent;
+                break;
+        }
+
+        element.classList.add("piece-element");
+        rightZone.appendChild(element);
     });
 }
+
 
 // rend l'élément bougeable
 function makeDraggable(element) {
@@ -30,6 +98,7 @@ function makeDraggable(element) {
         function moveAt(pageX, pageY) {
             element.style.left = pageX - shiftX + "px";
             element.style.top = pageY - shiftY + "px";
+            //console.log(element.style.left, element.style.top);
         }
 
         function onMouseMove(event) {
@@ -83,6 +152,8 @@ function makeDraggable(element) {
     });
 }
 
+
+
 // Attach draggable functionality to all initial pieces
 pieces.forEach(piece => {
     piece.addEventListener("mousedown", (event) => {
@@ -95,7 +166,7 @@ pieces.forEach(piece => {
         clone.style.width = rect.width + "px";
         clone.style.height = rect.height + "px";
 
-        clone.style.position = "absolute";
+        clone.style.position = "fixed";
         clone.style.left = event.pageX + "px";
         clone.style.top = event.pageY + "px";
         clone.style.cursor = "grabbing";
@@ -107,6 +178,7 @@ pieces.forEach(piece => {
         function moveAt(pageX, pageY) {
             clone.style.left = pageX - shiftX + "px";
             clone.style.top = pageY - shiftY + "px";
+            //console.log(clone.style.left, clone.style.top);
         }
 
         function onMouseMove(event) {
