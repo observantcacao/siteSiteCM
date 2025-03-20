@@ -123,7 +123,11 @@ function makeDraggable(element) {
                 elemRect.top < sidebarRect.bottom &&
                 elemRect.bottom > sidebarRect.top
             ) {
-                element.remove();
+                //element.remove();
+                element.classList.add("fade-out");
+                setTimeout(() => {
+                    element.remove();
+                }, 300);
             }
             // si c'est placé a droite alors on supprime
             else if (
@@ -132,7 +136,11 @@ function makeDraggable(element) {
                 elemRect.top < rightRect.bottom &&
                 elemRect.bottom > rightRect.top
             ) {
-                element.remove();
+                //element.remove();
+                element.classList.add("fade-out");
+                setTimeout(() => {
+                    element.remove();
+                }, 300);
             }
             // si c'est placé en haut ou en bas on supprime
             /*
@@ -140,7 +148,12 @@ function makeDraggable(element) {
                 element.remove();
             }*/
             else if (elemRect.bottom < 0 || elemRect.top > window.innerHeight) {
-                element.remove();
+                //element.remove();
+                element.classList.add("fade-out");
+                setTimeout(() => {
+                    element.remove();
+                }, 300);
+            updateRightZone();
             }
 
             updateRightZone(); // Update right zone when elements move
@@ -151,7 +164,11 @@ function makeDraggable(element) {
 
     // Delete on double-click
     element.addEventListener("dblclick", () => {
-        element.remove();
+        // element.remove();
+        element.classList.add("fade-out");
+                setTimeout(() => {
+                    element.remove();
+                }, 300);
         updateRightZone(); // Update right zone when an element is deleted
     });
 }
@@ -207,7 +224,11 @@ pieces.forEach(piece => {
                 cloneRect.top < sidebarRect.bottom &&
                 cloneRect.bottom > sidebarRect.top
             ) {
-                clone.remove();
+                //clone.remove();
+                clone.classList.add("fade-out");
+                setTimeout(() => {
+                    clone.remove();
+                }, 300);
             }
             // If placed in the right zone, remove it
             else if (
@@ -216,7 +237,11 @@ pieces.forEach(piece => {
                 cloneRect.top < rightRect.bottom &&
                 cloneRect.bottom > rightRect.top
             ) {
-                clone.remove();
+                //clone.remove();
+                clone.classList.add("fade-out");
+                setTimeout(() => {
+                    clone.remove();
+                }, 300);
             }
             // If placed in the center, keep it draggable and allow double-click delete
             else if (
@@ -229,11 +254,16 @@ pieces.forEach(piece => {
                 makeDraggable(clone);
                 updateRightZone(); // Update right zone when an element is added
             }
+            updateRightZone();
         }, { once: true });
 
         // Enable double-click delete for the clone
         clone.addEventListener("dblclick", () => {
-            clone.remove();
+            //clone.remove();
+            clone.classList.add("fade-out");
+            setTimeout(() => {
+                clone.remove();
+            }, 300);
             updateRightZone(); // Update right zone when an element is deleted
         });
     });

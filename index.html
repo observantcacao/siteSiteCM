@@ -9,6 +9,23 @@
     <style>
     </style>
 </head>
+<style>
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        to {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+    }
+
+    .fade-out {
+        animation: fadeOut 0.3s ease-out;
+    } 
+</style>
 
 <body class="vh-100 d-flex align-items-center justify-content-center">
     <main class="container-fluid h-100 d-flex" style="--bs-gutter-x:0;">

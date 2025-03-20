@@ -72,4 +72,5 @@ par c'elle la
 >}
 
 cela a tout réparé.  
-après ce debugage dès le matin je me suis lancer dans des petites animations a mettre pour le déplacement des pièces, l'ordinateur sur lequel je suis est devenu vraiment lent pour je ne sais quel raison et j'ai du redémarrer mon ordinateur plusieurs fois, meme pendant que j'écrivais ce texte je vais donc me contenter de ce que j'ai fais aujourd'hui et essayer de progresser doucement
+après ce debugage dès le matin je me suis lancer dans des petites animations a mettre pour le déplacement des pièces, l'ordinateur sur lequel je suis est devenu vraiment lent pour je ne sais quel raison et j'ai du redémarrer mon ordinateur plusieurs fois, meme pendant que j'écrivais ce texte je vais donc me contenter de ce que j'ai fais aujourd'hui et essayer de progresser doucement,
+j'ai aussi eu le temps d'ajouter une animations de suppression des pièces que l'on prend.
