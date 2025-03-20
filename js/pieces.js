@@ -135,7 +135,11 @@ function makeDraggable(element) {
                 element.remove();
             }
             // si c'est placé en haut ou en bas on supprime
+            /*
             else if (elemRect.bottom < 0 || elemRect.top > event.clientY) {
+                element.remove();
+            }*/
+            else if (elemRect.bottom < 0 || elemRect.top > window.innerHeight) {
                 element.remove();
             }
 

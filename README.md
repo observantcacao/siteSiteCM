@@ -50,3 +50,26 @@ j'ai aussi ajouté le fais qu'on vois le texte de la pièces que l'on veut a dro
 ### <u>06.03.25</u>
 reprise après la semaine de vacances je commence par devoir réparé le bug de la dernière fois ou la pièces ce décale sur la droite, pour le faire j'ai changé sa position de absolute a fixed est cela a tout réglé car la pièces était affecté par le css et plus maintenant.  
 j'ai mis le fais que les pièces n'affiche plus juste du texte mais leur élément propre (par rapport au nom)
+
+---
+### <u>13.03.25</u>
+ski
+
+---
+### <u>20.03.25</u>
+je commence la journée avec mon disque qui ne marche pas, pas très motivant mais après avoir remis quelque nécéssité je me suis remis au travail, 
+en début de journée j'avais un problème ou les pièces que je glissais vers le bas disparraissais dès que je les lachais, j'ai regler le soucis tout simplement en changeant cette ligne :
+> ```
+> else if (elemRect.bottom < 0 || elemRect.top > event.clientY) {
+>       ...
+>}
+
+par c'elle la 
+
+> ```
+> else if (elemRect.bottom < 0 || elemRect.top > window.innerHeight) {
+>       ...
+>}
+
+cela a tout réparé.  
+après ce debugage dès le matin je me suis lancer dans des petites animations a mettre pour le déplacement des pièces, l'ordinateur sur lequel je suis est devenu vraiment lent pour je ne sais quel raison et j'ai du redémarrer mon ordinateur plusieurs fois, meme pendant que j'écrivais ce texte je vais donc me contenter de ce que j'ai fais aujourd'hui et essayer de progresser doucement
