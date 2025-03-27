@@ -1,7 +1,7 @@
 // initialisation des zones d'action (et de la zone des pièces)
 let pieces = document.querySelectorAll(".cardPiece");
 let sidebar = document.querySelector(".bg-dark"); // <- gauche
-let centerArea = document.querySelector(".flex-fill.bg-light"); // <- zoen du centre
+let centerArea = document.querySelector(".flex-fill.bg-light"); // <- zone du centre
 let rightZone = document.querySelector(".right-zone"); // <- zone d'affichage
 
 // met a jour la zone d'affichage avec 
@@ -228,7 +228,9 @@ pieces.forEach(piece => {
                 clone.classList.add("fade-out");
                 setTimeout(() => {
                     clone.remove();
+                    updateRightZone();
                 }, 300);
+                //updateRightZone();
             }
             // If placed in the right zone, remove it
             else if (
@@ -241,7 +243,9 @@ pieces.forEach(piece => {
                 clone.classList.add("fade-out");
                 setTimeout(() => {
                     clone.remove();
+                    updateRightZone();
                 }, 300);
+                //updateRightZone();
             }
             // If placed in the center, keep it draggable and allow double-click delete
             else if (
@@ -263,8 +267,9 @@ pieces.forEach(piece => {
             clone.classList.add("fade-out");
             setTimeout(() => {
                 clone.remove();
+                updateRightZone();
             }, 300);
-            updateRightZone(); // Update right zone when an element is deleted
+            updateRightZone();
         });
     });
 

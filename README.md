@@ -74,3 +74,9 @@ par c'elle la
 cela a tout réparé.  
 après ce debugage dès le matin je me suis lancer dans des petites animations a mettre pour le déplacement des pièces, l'ordinateur sur lequel je suis est devenu vraiment lent pour je ne sais quel raison et j'ai du redémarrer mon ordinateur plusieurs fois, meme pendant que j'écrivais ce texte je vais donc me contenter de ce que j'ai fais aujourd'hui et essayer de progresser doucement,
 j'ai aussi eu le temps d'ajouter une animations de suppression des pièces que l'on prend.
+
+---
+### <u>27.03.25</u>
+puisque j'ai tout fini pour ce sprint je vais essayer d'enlever une erreur qui ce passe lorsque je supprime une pièces. C'est à dire que si je double clique dessus pour supprimer l'élément a droite vas se retirer aussi et directement. Alors que si je tente de le supprimer en le sortant des limite (haut, droite, bas, gauche) il ne vas pas ce supprimer tout de suite mais dès qu'il aura une toute autre interaction il se supprimera donc techniquement ça marche mais je n'aime pas du tout cela je vais donc essayer de le corriger.
+
+je n'ai pas reussi a corriger ce bug j'ai essayer de le réparé mais sans changement je pense que la prochaine fois j'essaierais de mettre une attente de 1 seconde puis essaierais d'actualiser la partie de droite.
