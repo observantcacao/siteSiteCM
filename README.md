@@ -57,16 +57,16 @@ ski
 
 ---
 ### <u>20.03.25</u>
-je commence la journée avec mon disque qui ne marche pas, pas très motivant mais après avoir remis quelque nécéssité je me suis remis au travail, 
+je commence la journée avec mon disque qui ne marche pas, pas très motivant mais après avoir remis quelque nécéssité je me suis remis au travail,
 en début de journée j'avais un problème ou les pièces que je glissais vers le bas disparraissais dès que je les lachais, j'ai regler le soucis tout simplement en changeant cette ligne :
-> ```
+> ```javascript
 > else if (elemRect.bottom < 0 || elemRect.top > event.clientY) {
 >       ...
 >}
 
 par c'elle la 
 
-> ```
+> ```javascript
 > else if (elemRect.bottom < 0 || elemRect.top > window.innerHeight) {
 >       ...
 >}
@@ -80,3 +80,7 @@ j'ai aussi eu le temps d'ajouter une animations de suppression des pièces que l
 puisque j'ai tout fini pour ce sprint je vais essayer d'enlever une erreur qui ce passe lorsque je supprime une pièces. C'est à dire que si je double clique dessus pour supprimer l'élément a droite vas se retirer aussi et directement. Alors que si je tente de le supprimer en le sortant des limite (haut, droite, bas, gauche) il ne vas pas ce supprimer tout de suite mais dès qu'il aura une toute autre interaction il se supprimera donc techniquement ça marche mais je n'aime pas du tout cela je vais donc essayer de le corriger.
 
 je n'ai pas reussi a corriger ce bug j'ai essayer de le réparé mais sans changement je pense que la prochaine fois j'essaierais de mettre une attente de 1 seconde puis essaierais d'actualiser la partie de droite.
+
+---
+### <u>03.04.25</u>
+début du nouveau sprint je commence par ajouté l'affichage de l'exemple pour que les gens ai un model a suivre je ne vais pas faire de système qui valide a la mains ce qui est fais et sera plutôt fais avec les personne qui vont surveiller l'activité a la cité des métier, je l'ai donc réaliser aujourd'hui assez simplement avec un offcanva de bootstrap (je l'ai mis sur un petit boutons que l'on vois en bas a droite de l'écran)

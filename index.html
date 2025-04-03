@@ -24,7 +24,25 @@
 
     .fade-out {
         animation: fadeOut 0.3s ease-out;
-    } 
+    }
+
+    .open-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .open-btn:hover {
+            background-color: #0056b3;
+        }
 </style>
 
 <body class="vh-100 d-flex align-items-center justify-content-center">
@@ -157,6 +175,23 @@
             <div class="flex-fill bg-light border right-zone"></div>
         </div>
     </main>
+
+    <!-- Off-Canvas Panel (Right Side) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Image Viewer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body text-center">
+            <img src="https://via.placeholder.com/300" class="img-fluid rounded" alt="Image model">
+        </div>
+    </div>
+
+    <!-- Button to Open Off-Canvas -->
+    <button class="open-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">
+        model
+    </button>
+
     <script src="js/pieces.js"></script>
     <script src="js/bootstrap.js"></script>
 </body>
