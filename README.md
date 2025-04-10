@@ -84,3 +84,7 @@ je n'ai pas reussi a corriger ce bug j'ai essayer de le réparé mais sans chang
 ---
 ### <u>03.04.25</u>
 début du nouveau sprint je commence par ajouté l'affichage de l'exemple pour que les gens ai un model a suivre je ne vais pas faire de système qui valide a la mains ce qui est fais et sera plutôt fais avec les personne qui vont surveiller l'activité a la cité des métier, je l'ai donc réaliser aujourd'hui assez simplement avec un offcanva de bootstrap (je l'ai mis sur un petit boutons que l'on vois en bas a droite de l'écran)
+
+---
+### <u>10.04.25</u>
+aujourd'hui je me lance comme défi de faire la partie style et honnêtement je n'ai aucune idée de comment la faire je vais donc me renseigner sur le site de bootstrap pour m'inspirer. J'ai ajouter des éléments css et vais les implementer la semaine prochaine.
