@@ -88,3 +88,10 @@ début du nouveau sprint je commence par ajouté l'affichage de l'exemple pour q
 ---
 ### <u>10.04.25</u>
 aujourd'hui je me lance comme défi de faire la partie style et honnêtement je n'ai aucune idée de comment la faire je vais donc me renseigner sur le site de bootstrap pour m'inspirer. J'ai ajouter des éléments css et vais les implementer la semaine prochaine.
+
+---
+### <u>08.05.25</u>
+jai essayer de regler le problème des pièces que se supprime mal mais sans succès.
+je suis ensuite allé me faire un design pour les pièces de puzzle puisque je vais supprimer les pièces de style.
+le style sera directement implémenter dans la pièces voulu cela me permettra de plus a empêcher des mélange bizarre.
+https://www.figma.com/board/3SdVKQSNF73kZjlfRFt0TI/Crea-lite-maquette?node-id=0-1&t=LmFwfi5aGYcBQnu8-1 

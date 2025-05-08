@@ -230,7 +230,7 @@ pieces.forEach(piece => {
                     clone.remove();
                     updateRightZone();
                 }, 300);
-                //updateRightZone();
+                updateRightZone();
             }
             // If placed in the right zone, remove it
             else if (
@@ -245,7 +245,7 @@ pieces.forEach(piece => {
                     clone.remove();
                     updateRightZone();
                 }, 300);
-                //updateRightZone();
+                updateRightZone();
             }
             // If placed in the center, keep it draggable and allow double-click delete
             else if (
