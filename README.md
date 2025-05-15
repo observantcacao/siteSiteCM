@@ -95,3 +95,7 @@ jai essayer de regler le problème des pièces que se supprime mal mais sans suc
 je suis ensuite allé me faire un design pour les pièces de puzzle puisque je vais supprimer les pièces de style.
 le style sera directement implémenter dans la pièces voulu cela me permettra de plus a empêcher des mélange bizarre.
 https://www.figma.com/board/3SdVKQSNF73kZjlfRFt0TI/Crea-lite-maquette?node-id=0-1&t=LmFwfi5aGYcBQnu8-1 
+
+---
+### <u>15.05.25</u>
+j'ai essayer d'implementer les nouveaux modificateurs de style mais sans succès j'ai donc pivoter sur le bug de la dernière fois. (celui avec l'actualisation) il est donc fixé et fini, il occurait car lors de la réattributions d'événement sur des morceau de carte qui vont s'afficher je n'avait point mis la réactualisation sur l'événement que j'attribue quand on les pose

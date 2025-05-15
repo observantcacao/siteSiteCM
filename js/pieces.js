@@ -127,7 +127,9 @@ function makeDraggable(element) {
                 element.classList.add("fade-out");
                 setTimeout(() => {
                     element.remove();
+                    updateRightZone();
                 }, 300);
+                updateRightZone();
             }
             // si c'est placé a droite alors on supprime
             else if (
@@ -140,7 +142,9 @@ function makeDraggable(element) {
                 element.classList.add("fade-out");
                 setTimeout(() => {
                     element.remove();
+                    updateRightZone();
                 }, 300);
+                updateRightZone();
             }
             // si c'est placé en haut ou en bas on supprime
             /*
@@ -275,3 +279,38 @@ pieces.forEach(piece => {
 
     piece.ondragstart = () => false;
 });
+
+class text {
+    color = `white`;
+    flex = `none`;
+    border = ``;
+    font = `monospace`
+}
+
+class input {
+
+}
+
+class liste{
+
+}
+
+class section{
+
+}
+
+class div {
+
+}
+
+class lien{
+
+}
+
+class image {
+
+}
+
+class titre {
+
+}
