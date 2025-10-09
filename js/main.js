@@ -12,8 +12,15 @@ function allowDrop(event) {
 function drop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
+
+    if (event.target.tagName === "BUTTON" || event.target.tagName === "INPUT") {
+        return; 
+    }
+
     event.target.appendChild(document.getElementById(data));
 }
+
+
 
 // crée chaque blocks
 blocks.push(new Blocks("text"));

@@ -1,5 +1,4 @@
 export default class Blocks {
-    // truc a modifier
     #id = "";
     #name = "";
     Color = "#898989";
@@ -13,42 +12,58 @@ export default class Blocks {
     }
 
     #addToolbox() {
-        // Create li
         const li = document.createElement("li");
         li.classList.add("nav-item");
 
-        // Create cardPiece div
         const cardPiece = document.createElement("div");
         cardPiece.classList.add("cardPiece", "mx-1");
 
-        // Create card div
         const card = document.createElement("div");
         card.classList.add("card");
         card.id = this.#id;
         card.draggable = "true";
         card.ondragstart = (event) => this.#drag(event);
+        card.style.display ="flex"
+        card.style.flexDirection = "row";
 
-        // Create card-body div
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
         cardBody.textContent = this.#name;
 
-        // Build hierarchy
+        // === Nouveau menu déroulant avec input ===
+        const dropdownWrapper = document.createElement("div");
+        dropdownWrapper.style.marginTop = "10px";
+
+        const dropdownButton = document.createElement("button");
+        dropdownButton.textContent = "Ouvrir input";
+        dropdownButton.type = "button";
+        dropdownButton.className ="btn btn-outline-primary";
+
+        const inputField = document.createElement("input");
+        inputField.type = "text";
+        inputField.placeholder = "Écrire ici...";
+        inputField.style.display = "none";
+        inputField.style.marginTop = "5px";
+
+        dropdownButton.addEventListener("click", () => {
+            inputField.style.display = inputField.style.display === "none" ? "block" : "none";
+        });
+
+        dropdownWrapper.appendChild(dropdownButton);
+        dropdownWrapper.appendChild(inputField);
+
+        
         card.appendChild(cardBody);
+        card.appendChild(dropdownWrapper);
         cardPiece.appendChild(card);
         li.appendChild(cardPiece);
 
-        // Append into toolbox container
         this.#toolboxDiv.appendChild(li);
     }
-
-    
 
     #drag(event) {
         event.dataTransfer.setData("text", event.target.id);
     }
-
-    
 
     #generateCode(){
         return `${this.#name} code bla bla`;
