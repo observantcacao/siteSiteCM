@@ -3,7 +3,7 @@ export default class Blocks {
     #id = "";
     #name = "";
     Color = "#898989";
-    
+
     #toolboxDiv = document.getElementById("toolBox");
 
     constructor(nameD) {
@@ -27,6 +27,7 @@ export default class Blocks {
         card.id = this.#id;
         card.draggable = "true";
         card.ondragstart = (event) => this.#drag(event);
+        card.ondragend = () => this.#disableHelp();
 
         // Create card-body div
         const cardBody = document.createElement("div");
@@ -42,15 +43,27 @@ export default class Blocks {
         this.#toolboxDiv.appendChild(li);
     }
 
-    
-
     #drag(event) {
         event.dataTransfer.setData("text", event.target.id);
+        this.#enableHelp();
     }
 
-    
-
-    #generateCode(){
+    #generateCode() {
         return `${this.#name} code bla bla`;
     }
+
+    #enableHelp() {
+        Array.from(document.getElementById("dropZones").children).forEach(dropzone => {
+            dropzone.classList.add("forward");
+            console.log("affiche");
+        });
+    }
+    #disableHelp() {
+        Array.from(document.getElementById("dropZones").children).forEach(dropzone => {
+            dropzone.classList.remove("forward");
+            console.log("affiche");
+        });
+    }
+
+
 }
