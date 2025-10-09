@@ -2,6 +2,7 @@ export default class Blocks {
     #id = "";
     #name = "";
     Color = "#898989";
+    #value = "";
     
     #toolboxDiv = document.getElementById("toolBox");
 
@@ -9,6 +10,7 @@ export default class Blocks {
         this.#name = nameD;
         this.#id = crypto.randomUUID();
         this.#addToolbox();
+        this.value = this.#name;
     }
 
     #addToolbox() {
@@ -45,12 +47,26 @@ export default class Blocks {
         inputField.style.display = "none";
         inputField.style.marginTop = "5px";
 
+        const SubmitField = document.createElement("input");
+        SubmitField.type = "submit";
+        SubmitField.value = "Validé"
+        SubmitField.style.display = "none";
+
         dropdownButton.addEventListener("click", () => {
             inputField.style.display = inputField.style.display === "none" ? "block" : "none";
+            SubmitField.style.display = SubmitField.style.display === "none" ? "block" : "none";
         });
 
-        dropdownWrapper.appendChild(dropdownButton);
-        dropdownWrapper.appendChild(inputField);
+        SubmitField.addEventListener("submit", () => {
+            this.#value = inputField.value;     
+        })
+
+        if(this.#name != "div" && this.#name != "list"){
+
+            dropdownWrapper.appendChild(dropdownButton);
+            dropdownWrapper.appendChild(inputField);
+            dropdownWrapper.appendChild(SubmitField);
+        }
 
         
         card.appendChild(cardBody);
@@ -59,6 +75,10 @@ export default class Blocks {
         li.appendChild(cardPiece);
 
         this.#toolboxDiv.appendChild(li);
+    }
+
+    getValue(){
+        return this.#value;
     }
 
     #drag(event) {

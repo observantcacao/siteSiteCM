@@ -1,8 +1,10 @@
 // import de la class Block
 import Blocks from "./blocks.js"
+let result = document.getElementById("result");
 
 // array qui vas stocker les données principales
 const blocks = []
+let dropBlock = []
 
 // fonctions
 function allowDrop(event) {
@@ -35,4 +37,12 @@ document.getElementById("dropZones").childNodes.forEach(dropzone => {
         dropzone.ondragover = (event) => allowDrop(event);
         dropzone.ondrop = (event) => drop(event);
     }
+
+    console.log(dropzone)
+
+    let i = 0;
+
+    
+
 });
+
