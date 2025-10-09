@@ -4,178 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crea-lite</title>
+    <title>SiteSite</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <style>
-    </style>
+    <link rel="stylesheet" href="css/extraStyle.css">
 </head>
-<style>
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-            transform: scale(1);
-        }
 
-        to {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-    }
-
-    .fade-out {
-        animation: fadeOut 0.3s ease-out;
-    }
-
-    .open-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50%;
-            font-size: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-
-        .open-btn:hover {
-            background-color: #0056b3;
-        }
-</style>
-
-<body class="vh-100 d-flex align-items-center justify-content-center">
-    <main class="container-fluid h-100 d-flex" style="--bs-gutter-x:0;">
-
-        <!-- Off-canvas permanent -->
-        <div class="bg-dark text-white p-3 rounded-end overflow-auto" style="width: 250px; height: 100%;">
-
-            <!-- pièce -->
-            <u>
-                <h4 class="text-center">Pièces</h4>
-            </u>
-            <ul class="nav flex-column text-center row-gap-1">
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                Text
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                rentrer du texte
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                liste
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                section
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                div
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                lien
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                image
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                titre
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="cardPiece">
-                        <div class="card">
-                            <div class="card-body">
-                                scroll down
-                            </div>
-                        </div>
-                    </div>
-                </li>
+<body class="d-flex flex-column h-100 w-100">
+    <!-- body -->
+    <div class="d-flex flex-grow-1 w-100">
+        <div id="toolBoxBar" class="col-2 bg border overflow-auto text-center">
+            <div class="mt-1">
+                <u>
+                    <h4>ToolBox</h4>
+                </u>
+            </div>
+            <ul id="toolBox" class="nav flex-column text-center row-gap-1">
+                <div>test</div>
             </ul>
-
-            <br>
-
-            <!-- éléments de style -->
-            
         </div>
 
-        <!-- Contenu principal -->
-        <div class="flex-fill d-flex position-relative">
-
-
-            <!-- Divs principaux -->
-            <!-- zone d'édition principale -->
-            <div class="flex-fill bg-light border"></div>
-
-            <!-- zone d'affichage -->
-            <div class="flex-fill bg-light border right-zone"></div>
+        <div id="workStation" class="col-5 bg-light border">
+            <div class="container">
+                    <div class="row" id="dropZones">
+                        <div id="drop1" class="col-12 pt-5 pb-5 border border-danger text-center align-items-center">
+                            
+                        </div>
+                        <div id="drop2" class="col-12 pt-5 pb-5 border border-danger text-center align-items-center">
+                            
+                        </div>
+                        <div id="drop3" class="col-12 pt-5 pb-5 border border-danger text-center align-items-center">
+                            
+                        </div>
+                        <div id="drop4" class="col-12 pt-5 pb-5 border border-danger text-center align-items-center">
+                            
+                        </div>
+                        <div id="drop5" class="col-12 pt-5 pb-5 border border-danger text-center align-items-center">
+                            
+                        </div>
+                        <div id="drop6" class="col-12 pt-5 pb-5 border border-danger text-center align-items-center">
+                            
+                        </div>
+                        <div id="drop7" class="col-12 pt-5 pb-5 border border-danger text-center align-items-center">
+                            
+                        </div>
+                    </div>
+                </div>
         </div>
-    </main>
 
-    <!-- Off-Canvas Panel (Right Side) -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Image Viewer</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body text-center">
-            <img src="https://via.placeholder.com/300" class="img-fluid rounded" alt="Image model">
-        </div>
+        <div id="result" class="col-5 bg-light text-white border"></div>
+
     </div>
 
-    <!-- Button to Open Off-Canvas -->
-    <button class="open-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">
-        model
-    </button>
 
-    <script src="js/pieces.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

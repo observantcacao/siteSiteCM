@@ -99,3 +99,19 @@ https://www.figma.com/board/3SdVKQSNF73kZjlfRFt0TI/Crea-lite-maquette?node-id=0-
 ---
 ### <u>15.05.25</u>
 j'ai essayer d'implementer les nouveaux modificateurs de style mais sans succès j'ai donc pivoter sur le bug de la dernière fois. (celui avec l'actualisation) il est donc fixé et fini, il occurait car lors de la réattributions d'événement sur des morceau de carte qui vont s'afficher je n'avait point mis la réactualisation sur l'événement que j'attribue quand on les pose
+
+---
+### <u>18.09.25</u>
+La cité des métiers est dans un mois (les propjet doivent être pret dans un mois), je vais donc re-faire l'entièreté du système de block, qui devrais être plus propre et utilisable comparé à l'années scolaire dernière. Pour commencer je me fais un planning sur Github afin de suivre les tâches (tel on nous l'a appris).
+J'ai donc eu le temps de refaire le visuel, créer les tâches, et commencez les classes des block, elles feronts le travail suivant.
+- s'afficher a gauche
+- s'afficher au milieu
+- via l'affichage gerer leur propore propriété
+
+---
+### <u>25.09.25</u>
+j'ai réecris l'anciens code dans le nouveaux, en speed, ce qui a provoquer pleins de bug. le nouveaux système de construction n'est pas encore mis complètement.
+
+---
+### <u>02.10.25</u>
+on as mis deux projet ensemble entre l'équipe de l'autre classe, afin de pouvoir travailler plus vite, cette version sera donc la base de nos futurs push. J'ai enlever tout le tralala qui permettais de faire en sorte que l'on puisse poser la pièce n'importe où, ce sera du drag & drop basique avec des zones deja attribuer. J'ai donc ajouter une classe Block qui vas gerer chaque block.
