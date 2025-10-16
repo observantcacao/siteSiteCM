@@ -28,7 +28,7 @@ function drop(event) {
 blocks.push(new Blocks("text"));
 blocks.push(new Blocks("div"));
 blocks.push(new Blocks("list"));
-blocks.push(new Blocks("text"));
+blocks.push(new Blocks("list"));
 
 document.getElementById("dropZones").childNodes.forEach(dropzone => {
 

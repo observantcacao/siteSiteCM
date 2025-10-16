@@ -27,6 +27,7 @@ export default class Blocks {
         card.ondragstart = (event) => this.#drag(event);
         card.style.display ="flex"
         card.style.flexDirection = "row";
+        card.ondragend = () => this.#disableHelp();
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -83,9 +84,25 @@ export default class Blocks {
 
     #drag(event) {
         event.dataTransfer.setData("text", event.target.id);
+        this.#enableHelp();
     }
 
-    #generateCode(){
+    #generateCode() {
         return `${this.#name} code bla bla`;
     }
+
+    #enableHelp() {
+        Array.from(document.getElementById("dropZones").children).forEach(dropzone => {
+            dropzone.classList.add("forward");
+            console.log("affiche");
+        });
+    }
+    #disableHelp() {
+        Array.from(document.getElementById("dropZones").children).forEach(dropzone => {
+            dropzone.classList.remove("forward");
+            console.log("affiche");
+        });
+    }
+
+
 }

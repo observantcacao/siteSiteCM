@@ -7,3 +7,39 @@ html, body{
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+.forward{
+  /*border-radius: 25px;*/
+  box-shadow: 0px 0px 10px rgba(116, 53, 175, 0.089);
+
+  /*animation: appearSmooth 0.7s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.95);*/
+}
+
+.deleted{
+  animation: dissapearFast 0.1 ease-in forwards;
+
+}
+
+@keyframes appearSmooth{
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dissapearFast {
+  0%{
+    opacity: 1;
+    transform: scale(1);
+  }
+  100%{
+    opacity: 0;
+    transform: scale(0);
+  }
+}
