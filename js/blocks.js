@@ -48,18 +48,18 @@ export default class Blocks {
         inputField.style.display = "none";
         inputField.style.marginTop = "5px";
 
-        const SubmitField = document.createElement("input");
-        SubmitField.type = "submit";
-        SubmitField.value = "Valider"
-        SubmitField.style.display = "none";
+        const validateInput = document.createElement("input");
+        validateInput.type = "button";
+        validateInput.value = "Valider"
+        validateInput.style.display = "none";
 
         dropdownButton.addEventListener("click", () => {
             inputField.style.display = inputField.style.display === "none" ? "block" : "none";
-            SubmitField.style.display = SubmitField.style.display === "none" ? "block" : "none";
-            dropdownButton.className = SubmitField.style.display === "none" ? "btn btn-outline-primary" : "btn btn-primary";
+            validateInput.style.display = validateInput.style.display === "none" ? "block" : "none";
+            dropdownButton.className = validateInput.style.display === "none" ? "btn btn-outline-primary" : "btn btn-primary";
         });
 
-        SubmitField.addEventListener("submit", () => {
+        validateInput.addEventListener("click", () => {
             this.#value = inputField.value;     
         })
 
@@ -67,7 +67,7 @@ export default class Blocks {
 
             dropdownWrapper.appendChild(dropdownButton);
             dropdownWrapper.appendChild(inputField);
-            dropdownWrapper.appendChild(SubmitField);
+            dropdownWrapper.appendChild(validateInput);
         }
 
         
