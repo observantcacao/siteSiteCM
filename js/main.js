@@ -41,8 +41,4 @@ document.getElementById("dropZones").childNodes.forEach(dropzone => {
     console.log(dropzone)
 
     let i = 0;
-
-    
-
 });
-
