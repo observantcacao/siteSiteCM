@@ -56,6 +56,7 @@ export default class Blocks {
         dropdownButton.addEventListener("click", () => {
             inputField.style.display = inputField.style.display === "none" ? "block" : "none";
             SubmitField.style.display = SubmitField.style.display === "none" ? "block" : "none";
+            dropdownButton.className = SubmitField.style.display === "none" ? "btn btn-outline-primary" : "btn btn-primary";
         });
 
         SubmitField.addEventListener("submit", () => {
