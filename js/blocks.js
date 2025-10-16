@@ -37,7 +37,7 @@ export default class Blocks {
         dropdownWrapper.style.marginTop = "10px";
 
         const dropdownButton = document.createElement("button");
-        dropdownButton.textContent = "Ouvrir input";
+        dropdownButton.textContent = "Modifier";
         dropdownButton.type = "button";
         dropdownButton.className ="btn btn-outline-primary";
 
@@ -49,7 +49,7 @@ export default class Blocks {
 
         const SubmitField = document.createElement("input");
         SubmitField.type = "submit";
-        SubmitField.value = "Validé"
+        SubmitField.value = "Valider"
         SubmitField.style.display = "none";
 
         dropdownButton.addEventListener("click", () => {
