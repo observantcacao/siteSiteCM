@@ -13,46 +13,53 @@ function allowDrop(event) {
 
 function drop(event) {
     event.preventDefault();
-    var data = event.dataTransfer.getData("text");
+
+    const data = event.dataTransfer.getData("text");
+    const droppedElement = document.getElementById(data);
+    if (!droppedElement) return;
+
+    const dropZone = event.target.closest("#dropZones > div");
+    if (!dropZone) return;
 
     if (event.target.tagName === "BUTTON" || event.target.tagName === "INPUT") {
         return;
     }
 
-    const droppedElement = document.getElementById(data);
+    // Récupération des anciens parents
+    const oldParent = droppedElement.parentElement;
+    const oldParentId = oldParent?.id;
 
-    // Suppression du bloc de l'ancienne position
-    if (droppedElement.parentElement && droppedElement.parentElement.id !== event.target.id) {
-        droppedElement.parentElement.removeChild(droppedElement);
+    // Si c’est la même zone on fait rien
+    if (oldParent === dropZone) return;
+
+    // Suppression du bloc dans l'ancien parent
+    if (oldParent) {
+        oldParent.removeChild(droppedElement);
     }
 
-    // Ajout de l'élément dans la nouvelle position
-    event.target.appendChild(droppedElement);
+    // Suppression du texte résultat dans l'ancient parent
+    if (oldParentId) {
+        const oldResultZone = document.querySelector(`#result > div[id="${oldParentId}"]`);
+        if (oldResultZone) oldResultZone.textContent = "";
+    }
 
-    const dropZoneId = event.target.id;
-    if (dropZoneId) {
-        const resultZones = document.querySelectorAll("#result > div");
+    // Ajout du bloc dans la nouvelle zone
+    dropZone.appendChild(droppedElement);
 
-        // Refresh
-        resultZones.forEach(zone => {
-            if (zone.textContent === droppedElement.querySelector(".card-body").textContent) {
-                zone.textContent = "";
-            }
-        });
-
-        const resultZone = document.querySelector(`#result > div[id="${dropZoneId}"]`);
-        if (resultZone) {
-            // Affichage résultat
-            resultZone.textContent = droppedElement.querySelector(".card-body").textContent;
-        }
+    // Affichage du résultat
+    const resultZone = document.querySelector(`#result > div[id="${dropZone.id}"]`);
+    if (resultZone) {
+        resultZone.innerHTML = droppedElement.dataset.value || "(vide)";
     }
 }
 
+
+
 // crée chaque blocks
-blocks.push(new Blocks("text"));
-blocks.push(new Blocks("div"));
-blocks.push(new Blocks("list"));
-blocks.push(new Blocks("list"));
+blocks.push(new Blocks("Paragraphe", "<p>Ceci est un bloc de texte<p>"));
+blocks.push(new Blocks("div", "<div>Contenu de la div</div>"));
+blocks.push(new Blocks("O-List", "<ol> <li>Élement 1</li> <li>Élement 2</li> <li>Élement 3</li> </ol>"));
+blocks.push(new Blocks("U-List", "<ul> <li>Élement 1</li> <li>Élement 2</li> <li>Élement 3</li> </ul>"));
 
 document.getElementById("dropZones").childNodes.forEach(dropzone => {
 
