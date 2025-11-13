@@ -16,6 +16,9 @@ function drop(event) {
 
     const data = event.dataTransfer.getData("text");
     const droppedElement = document.getElementById(data);
+    let name = droppedElement.dataset.name;
+    let value = droppedElement.dataset.value;
+
     if (!droppedElement) return;
 
     const dropZone = event.target.closest("#dropZones > div");
@@ -36,6 +39,27 @@ function drop(event) {
     if (oldParent) {
         oldParent.removeChild(droppedElement);
     }
+    
+    //on enlève
+    droppedElement.removeEventListener("dblclick", droppedElement._onDblClick);
+
+    // créer la fonction qui bouge
+    droppedElement._onDblClick = function (event) {
+        const currentParent = droppedElement.parentNode;
+        const idAutreCote = currentParent ? currentParent.id : null;
+        droppedElement.remove();
+
+        if (idAutreCote) {
+            const divAutreCote = document.querySelector(`#result > div[id="${idAutreCote}"]`);
+            if (divAutreCote) {
+                divAutreCote.textContent = ""; // vide l'autre coté
+            }
+        }
+    };
+
+    // ajout du double click pour supprimer
+    droppedElement.addEventListener("dblclick", droppedElement._onDblClick);
+
 
     // Suppression du texte résultat dans l'ancient parent
     if (oldParentId) {
@@ -44,16 +68,27 @@ function drop(event) {
     }
 
     // Ajout du bloc dans la nouvelle zone
-    dropZone.appendChild(droppedElement);
+    if (dropZone.childNodes.length === 0) {
+        dropZone.appendChild(droppedElement);
+        // Affichage du résultat
+        const resultZone = document.querySelector(`#result > div[id="${dropZone.id}"]`);
+        if (resultZone) {
+            resultZone.innerHTML = droppedElement.dataset.value || "(vide)";
+        }
 
-    // Affichage du résultat
-    const resultZone = document.querySelector(`#result > div[id="${dropZone.id}"]`);
-    if (resultZone) {
-        resultZone.innerHTML = droppedElement.dataset.value || "(vide)";
+
     }
+
+    let toolboxTemp = document.getElementById("toolBox");
+    toolboxTemp.innerHTML = "";
+    blocks.forEach(x => {
+        x.addToolbox();
+    })
 }
 
-
+function addBlockInPanelLeft(block, contenu) {
+    blocks.push(new Blocks(block, contenu));
+}
 
 // crée chaque blocks
 blocks.push(new Blocks("Paragraphe", "<p>Ceci est un bloc de texte<p>"));

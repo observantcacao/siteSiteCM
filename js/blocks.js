@@ -1,19 +1,19 @@
 export default class Blocks {
     #id = "";
-    #name = "";
+    name = "";
     Color = "#898989";
-    #value = "";
+    value = "";
     
     #toolboxDiv = document.getElementById("toolBox");
 
     constructor(nameD, valueD) {
-        this.#name = nameD;
-        this.#id = crypto.randomUUID();
-        this.#value = valueD;
-        this.#addToolbox();
+        this.name = nameD;
+        this.value = valueD;
+        this.addToolbox();
     }
-
-    #addToolbox() {
+    
+    addToolbox() {
+        this.#id = crypto.randomUUID(); // genère un ID aléatoire
         const li = document.createElement("li");
         li.classList.add("nav-item");
 
@@ -24,7 +24,7 @@ export default class Blocks {
 
         const card = document.createElement("div");
         card.classList.add("card");
-        card.dataset.value = this.#value;
+        card.dataset.value = this.value;
         card.id = this.#id;
         card.draggable = "true";
         card.ondragstart = (event) => this.#drag(event);
@@ -35,7 +35,8 @@ export default class Blocks {
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
-        cardBody.textContent = this.#name;
+        cardBody.textContent = this.name;
+        card.dataset.name = this.name;
 
         card.appendChild(cardBody);
         cardPiece.appendChild(card);
@@ -45,7 +46,7 @@ export default class Blocks {
     }
 
     getValue(){
-        return this.#value;
+        return this.value;
     }
 
     #drag(event) {
@@ -54,19 +55,19 @@ export default class Blocks {
     }
 
     #generateCode() {
-        return `${this.#name} code bla bla`;
+        return `${this.name} code bla bla`;
     }
 
     #enableHelp() {
         Array.from(document.getElementById("dropZones").children).forEach(dropzone => {
             dropzone.classList.add("forward");
-            console.log("affiche");
+            //console.log("affiche");
         });
     }
     #disableHelp() {
         Array.from(document.getElementById("dropZones").children).forEach(dropzone => {
             dropzone.classList.remove("forward");
-            console.log("affiche");
+            //console.log("affiche");
         });
     }
 
